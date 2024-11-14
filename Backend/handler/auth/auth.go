@@ -124,7 +124,6 @@ func (h *AuthHandler) SignUp(c *fiber.Ctx) error {
 
 	result = h.DB.Create(&newUser)
 
-	println(result.Error)
 	if result.Error != nil {
 		return c.Status(500).SendString("Can not Create NewUser")
 	}
