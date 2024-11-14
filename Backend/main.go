@@ -1,11 +1,16 @@
 package main
 
-import "github.com/gofiber/fiber/v2"
+import (
+	"github.com/Nxwbtk/Chula-legal-tech/services"
+)
 
 func main() {
-	app := fiber.New()
-	app.Get("/", func(c *fiber.Ctx) error {
-		return c.SendString("Hello, World!")
-	})
-	app.Listen(":9898")
+
+	db,err := services.SetUpDB()
+
+	if (err != nil){
+		panic(err)
+	}
+	app := services.SetUpFiber(db)
+	services.SetUpServer(app)
 }
