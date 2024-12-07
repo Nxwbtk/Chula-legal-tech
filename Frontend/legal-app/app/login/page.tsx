@@ -16,12 +16,12 @@ const LoginPage = () => {
 
     return (
         <div className="flex justify-center items-center bg-white h-screen w-screen font-kanit">
-            <div className="relative flex flex-col justify-around items-center text-center bg-[url(https://oddatelier.net/wp-content/uploads/2024/09/web_profile01.jpg)] bg-center bg-cover w-[22%] h-screen p-8">
+            <div className="relative flex flex-col justify-around items-center text-center bg-[url(https://www.figma.com/file/LlvSLLtbFgjKjRn7ieW5Pu/image/16f11896ac0171df49a84ace75fd953eba2b6ed9)] bg-center bg-cover w-[22%] h-screen p-8">
                 <div className="">
                     <h1 className="text-4xl text-white">Login</h1>
                 </div>
                 <div className="">
-                    <h1 className="text-sm text-white">Log in to access expert legal assistance at any time.</h1>
+                    <h1 className="text-xl text-white">Log in to access expert legal assistance at any time.</h1>
                 </div>
                 <div className="">
                     {/* <h1 className="text-4xl text-white">Login</h1> */}
@@ -32,8 +32,8 @@ const LoginPage = () => {
                     <div className="mt-3">
                         <h1 className="text-2xl text-black">WELCOME TO <b className="text-pink-600">BLACK</b><b className="text-black">PINK</b></h1>
                     </div>
-                    <div className="mt-[5%] border-b-2 border-[#143D7C] w-1/2">
-                        <h1 className="text-xl font-semibold text-black">Login</h1>
+                    <div className="mt-[5%] border-b-2 border-mainColor w-1/2">
+                        <h1 className="text-2xl font-semibold text-mainColor">Login</h1>
                     </div>
                     <div className="mt-2 w-[50%]">
                         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
@@ -46,18 +46,18 @@ const LoginPage = () => {
                             <div className="text-left text-black mt-3">
                                 User Agreement: By using this app, you agree to our terms and conditions, including responsible use and compliance with all applicable laws
                             </div>
-                            {
+                            {/* {
                                 errors.username || errors.password ? <div className="text-red-500 text-left mt-3">Please fill in the required fields.</div> : null
-                            }
+                            } */}
                             <div className=" mt-3">
-                                <button type="submit" className="bg-[#143D7C] text-2xl p-3 font-bold w-full rounded-md outline-none transition focus:scale-90 duration-300 hover:bg-[#147D4C]">Sign In</button>
+                                <button type="submit" className="bg-mainColor text-white text-2xl p-3 font-bold w-full rounded-md outline-none transition focus:scale-90 duration-300 hover:bg-[#147D4C]">Sign In</button>
                             </div>
-                        </form>s
+                        </form>
                     </div>
                     
                     
                     <div className="text-left w-[50%] text-black">
-                        Don't have an account ? <Link href="/signUp" className="text-[#143D7C] border-b-2 border-[#143D7C]">Sign Up Here!</Link>
+                        Don't have an account ? <Link href="/signUp" className="text-mainColor border-b-2 border-mainColor">Sign Up Here!</Link>
                     </div>
                 </div>
             </div>
