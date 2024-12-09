@@ -1,6 +1,6 @@
 FROM node:22-bookworm-slim
 
-COPY legal-app/ /app
+COPY ./legal-app/ /app
 WORKDIR /app
 
 RUN rm -rf "app/(example)"
