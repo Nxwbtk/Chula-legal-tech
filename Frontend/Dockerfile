@@ -1,5 +1,6 @@
 FROM node:22-bookworm-slim
 
+RUN pwd
 COPY ./legal-app/ /app
 WORKDIR /app
 
