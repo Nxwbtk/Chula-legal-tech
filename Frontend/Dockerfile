@@ -1,7 +1,7 @@
 FROM node:22-bookworm-slim
 
 RUN pwd
-COPY ./legal-app/ /app
+COPY ./Frontend/legal-app /app
 WORKDIR /app
 
 RUN rm -rf "app/(example)"
