@@ -1,24 +1,13 @@
 "use client";
 
-import { useState } from 'react';
 import MainNav from '../../components/mainNav';
 import SubNav from '../../components/subNav';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader } from '@/components/ui/card';
-import { Users, ShieldCheck, FileText, FolderTree } from 'lucide-react';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import { Users, ShieldCheck, FileText } from 'lucide-react';
 import Footer from '@/components/footer';
 import { Button } from '@/components/ui/button';
 
 const HomePage = () => {
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-    const toggleDropdown = () => {
-        setIsDropdownOpen(!isDropdownOpen);
-    };
-
-    const toggleMobileMenu = () => {
-        setIsMobileMenuOpen(!isMobileMenuOpen);
-    };
 
     return (
         <>

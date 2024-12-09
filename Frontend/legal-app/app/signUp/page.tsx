@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 
 import BgImage from '../../img/background-login.png';
 
-const signUpPage: React.FC = () => {
+const SignUpPage = () => {
 
     const router = useRouter();
 
@@ -36,4 +36,4 @@ const signUpPage: React.FC = () => {
         </div>
     )
 };
-export default signUpPage;
+export default SignUpPage;

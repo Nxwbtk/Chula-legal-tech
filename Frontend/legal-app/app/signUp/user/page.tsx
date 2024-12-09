@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 
 type Inputs = {
@@ -19,12 +19,12 @@ type Inputs = {
     pic_profile?: File;
 }
 
-const signUser: React.FC = () => {
+const SignUser = () => {
 
     const [step, setStep] = useState(1);
     const [idCardPreview, setIdCardPreview] = useState<string>('');
     const [profilePreview, setProfilePreview] = useState<string>('');
-    const [error, setError] = useState<string>('');
+    const [error] = useState<string>('');
     const router = useRouter();
     const [validationErrors, setValidationErrors] = useState({
         username: false,
@@ -133,7 +133,11 @@ const signUser: React.FC = () => {
             if (currentPreview)
                 window.URL.revokeObjectURL(currentPreview);
             const previewURL = window.URL.createObjectURL(file);
-            type === 'IdCard' ? setIdCardPreview(previewURL) : setProfilePreview(previewURL);
+            if (type === 'IdCard') {
+                setIdCardPreview(previewURL);
+            } else {
+                setProfilePreview(previewURL);
+            }
         }
     };
 
@@ -517,4 +521,4 @@ const signUser: React.FC = () => {
         </form>
     );
 }
-export default signUser
+export default SignUser

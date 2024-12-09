@@ -11,7 +11,7 @@ type Inputs = {
 
 const LoginPage = () => {
 
-    const { register, handleSubmit, watch, formState: { errors } } = useForm<Inputs>()
+    const { register, handleSubmit } = useForm<Inputs>()
     const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
 
     return (
@@ -51,7 +51,7 @@ const LoginPage = () => {
                         </form>
                     </div>
                     <div className="text-left w-[50%] text-black">
-                        Don't have an account ? <Link href="/signUp" className="text-mainColor border-b-2 border-mainColor">Sign Up Here!</Link>
+                        {"Don't"} have an account ? <Link href="/signUp" className="text-mainColor border-b-2 border-mainColor">Sign Up Here!</Link>
                     </div>
                 </div>
             </div>

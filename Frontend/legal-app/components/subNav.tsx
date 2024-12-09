@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useRouter } from "next/navigation";
 import { Button } from './ui/button';
-import { isValid } from 'date-fns';
-
 const SubNav = () => {
 
     const [isVisible, setIsVisible] = useState(true);
@@ -65,20 +62,20 @@ const SubNav = () => {
             <div className={` w-full transition-transform duration-300 fixed top-16 bg-white z-30
                 ${isVisible ? 'translate-y-[-100%]' : 'transition-y-full'}
                 `}>
-                    <div className='flex w-full shadow-xl text-center h-fit bg-white'>
-                        <Button className='text-mainColor w-full text-xl p-12 rounded-none bg-white hover:bg-gray-200 focus:border-b-2 focus:border-mainColor '>
-                            ทนาย
-                        </Button>
-                        <Button className='text-mainColor w-full text-xl p-12 rounded-none bg-white hover:bg-gray-200 focus:border-b-2 focus:border-mainColor'>
-                            ตรวจสอบลิขสิทธิ์
-                        </Button>
-                        <Button className='text-mainColor w-full text-xl p-12 rounded-none bg-white hover:bg-gray-200 focus:border-b-2 focus:border-mainColor'>
-                            Chat Bot
-                        </Button>
-                        <Button className='text-mainColor w-full text-xl p-12 rounded-none bg-white hover:bg-gray-200 focus:border-b-2 focus:border-mainColor'>
-                            ข้อมูลเบื้องต้น
-                        </Button>
-                    </div>
+                <div className='flex w-full shadow-xl text-center h-fit bg-white'>
+                    <Button className='text-mainColor w-full text-xl p-12 rounded-none bg-white hover:bg-gray-200 focus:border-b-2 focus:border-mainColor '>
+                        ทนาย
+                    </Button>
+                    <Button className='text-mainColor w-full text-xl p-12 rounded-none bg-white hover:bg-gray-200 focus:border-b-2 focus:border-mainColor'>
+                        ตรวจสอบลิขสิทธิ์
+                    </Button>
+                    <Button className='text-mainColor w-full text-xl p-12 rounded-none bg-white hover:bg-gray-200 focus:border-b-2 focus:border-mainColor'>
+                        Chat Bot
+                    </Button>
+                    <Button className='text-mainColor w-full text-xl p-12 rounded-none bg-white hover:bg-gray-200 focus:border-b-2 focus:border-mainColor'>
+                        ข้อมูลเบื้องต้น
+                    </Button>
+                </div>
             </div>
         </>
     );

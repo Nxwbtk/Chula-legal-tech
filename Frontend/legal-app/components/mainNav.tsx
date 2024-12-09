@@ -2,14 +2,10 @@
 
 import * as React from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import {
     NavigationMenu,
-    NavigationMenuContent,
     NavigationMenuItem,
-    NavigationMenuLink,
     NavigationMenuList,
-    NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 
 import {
@@ -19,24 +15,11 @@ import {
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 
-import { Bell, Clock, Search, MessageCircle, Menu } from 'lucide-react';
+import { Bell, Clock, MessageCircle, Menu } from 'lucide-react';
 import { useState, useEffect } from 'react';
-import { cn } from '@/lib/utils';
 import { Button } from './ui/button';
 
-interface userData {
-    id: string,
-    username: string,
-    image?: string,
-    role: string,
-}
-
 const MainNav = () => {
-
-    const router = useRouter();
-    const [user, setUser] = useState<userData | null>(null);
-    const [loading, setLoading] = useState(true);
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
     const [isVisible, setIsVisible] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
