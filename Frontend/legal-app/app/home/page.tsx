@@ -12,9 +12,7 @@ import { HomeCheck } from "./_components/check";
 import { HomeLawyer } from "./_components/lawyer";
 
 const HomePage = () => {
-  const [setMenu, selectedMenu] = useMenuStore(
-    useShallow((state) => [state.setMenu, state.menu])
-  );
+  const [selectedMenu] = useMenuStore(useShallow((state) => [state.menu]));
   const [stepNumber, setStep] = useState(0);
   useEffect(() => {
     switch (selectedMenu) {

@@ -9,17 +9,11 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm, UseFormReturn } from "react-hook-form";
-import * as z from "zod";
 import "../globals.css";
+import { signInSchema } from "./schemas";
+import { TSignInForm } from "./types";
 
-export const signInSchema = z.object({
-  username: z.string().min(1, { message: "Username is required." }),
-  password: z.string().min(1, { message: "Password is required." }),
-});
-
-export type TSignInForm = z.infer<typeof signInSchema>;
-
-const LoginPage = () => {
+export default function LoginPage() {
   const [loading, setLoading] = useState(false);
   const form: UseFormReturn<TSignInForm> = useForm<TSignInForm>({
     resolver: zodResolver(signInSchema),
@@ -128,5 +122,4 @@ const LoginPage = () => {
       </div>
     </div>
   );
-};
-export default LoginPage;
+}

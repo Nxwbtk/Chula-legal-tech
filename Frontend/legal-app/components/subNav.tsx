@@ -103,6 +103,7 @@ const SubNav = () => {
         window.removeEventListener("scroll", controlNavbar);
       };
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lastScrollY]);
 
   return (
