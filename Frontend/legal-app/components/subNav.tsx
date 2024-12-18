@@ -1,154 +1,130 @@
-import { MenuType, useMenuStore } from "@/lib/store/menu-store";
-import { cn } from "@/lib/utils";
-import { useEffect, useState } from "react";
-import { useShallow } from "zustand/shallow";
-import { Button } from "./ui/button";
-
-export const MenuNavUnScrolling = ({
-  menu,
-  title,
-}: {
-  menu: MenuType;
-  title: string;
-}) => {
-  const [setMenu, selectedMenu] = useMenuStore(
-    useShallow((state) => [state.setMenu, state.menu])
-  );
-  const handleSelect = (menu: MenuType) => {
-    setMenu(menu);
-  };
-  return (
-    <Button
-      onClick={() => handleSelect(menu)}
-      className={cn({
-        "text-mainColor w-full text-xl p-12 rounded-none bg-white hover:bg-gray-200 ":
-          true,
-        "border-b-2 border-mainColor": selectedMenu === menu,
-      })}
-    >
-      {title}
-    </Button>
-  );
-};
-
-export const MenuNavScrolling = ({
-  menu,
-  title,
-}: {
-  menu: MenuType;
-  title: string;
-}) => {
-  const [setMenu, selectedMenu] = useMenuStore(
-    useShallow((state) => [state.setMenu, state.menu])
-  );
-  const handleSelect = (menu: MenuType) => {
-    setMenu(menu);
-  };
-  return (
-    <Button
-      onClick={() => handleSelect(menu)}
-      className={cn({
-        "text-mainColor w-full text-xl p-12 rounded-none bg-white hover:bg-gray-200 ":
-          true,
-        "border-b-2 border-mainColor": selectedMenu === menu,
-      })}
-    >
-      {title}
-    </Button>
-  );
-};
-
-export type MenuConfigType = {
-  name: string;
-  value: MenuType;
-};
+// SubNav.tsx
+import React, { useState, useEffect } from 'react';
+import { Button } from './ui/button';
 
 const SubNav = () => {
-  const MENU: MenuConfigType[] = [
-    {
-      name: "ทนาย",
-      value: "lawyer",
-    },
-    {
-      name: "ตรวจสอบลิขสิทธิ์",
-      value: "check-copyright",
-    },
-    {
-      name: "Chat Bot",
-      value: "chat-bot",
-    },
-    {
-      name: "ข้อมูลเบื้องต้น",
-      value: "basic-info",
-    },
-  ];
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
   const controlNavbar = () => {
-    if (typeof window !== "undefined") {
+    if (typeof window !== 'undefined') {
       if (window.scrollY > lastScrollY && window.scrollY > 200) {
         setIsVisible(false);
-      } else if (window.scrollY < lastScrollY) {
+      }
+      else if (window.scrollY < lastScrollY) {
         setIsVisible(true);
       }
       setLastScrollY(window.scrollY);
     }
-  };
+  }
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      window.addEventListener("scroll", controlNavbar);
+    if (typeof window !== 'undefined') {
+      window.addEventListener('scroll', controlNavbar);
       return () => {
-        window.removeEventListener("scroll", controlNavbar);
-      };
+        window.removeEventListener('scroll', controlNavbar);
+      }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lastScrollY]);
 
   return (
     <>
-      <div
-        className={`w-full h-[200px] transition-transform duration-300 
-                            ${
-                              isVisible ? "translate-y-0" : "-translate-y-full"
-                            }`}
-        style={{ marginTop: "64px" }}
-      >
-        <div className="flex justify-center items-start bg-mainColor w-full h-1/2">
-          <input
-            type="text"
-            name="search"
-            id=""
-            className="w-1/2 p-3 rounded-md mt-2"
-            placeholder="Search"
-          />
-        </div>
-        <div className="flex justify-center items-center w-full h-fit">
-          <div className="flex w-3/4 bg-none shadow-xl text-center h-fit mt-[-20px] hover:bg-white rounded-md">
-            {MENU.map((item, index) => (
-              <MenuNavUnScrolling
-                key={index}
-                menu={item.value}
-                title={item.name}
+      <div className="  fixed left-0 right-0 top-[64px]">
+        <div
+          className={`w-full h-[200px] transition-transform duration-300 bg-none
+                        ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}
+        >
+          <div className="w-full h-1/2 bg-mainColor">
+            <div className="mx-auto max-w-full px-4 h-full flex items-center">
+              <input
+                type="text"
+                name="search"
+                className="w-full md:w-1/2 p-3 rounded-md block mx-auto"
+                placeholder="Search"
               />
-            ))}
+            </div>
+          </div>
+          <div className="w-full flex">
+            <div className="mx-auto max-w-full px-4">
+              <div className="flex w-full bg-white shadow-xl rounded-md -mt-3">
+                <Button
+                  variant="ghost"
+                  className="flex-1 rounded-l-md rounded-r-none text-xl p-12 w-full
+                                        text-mainColor bg-white hover:bg-gray-200 focus:underline whitespace-nowrap"
+                >
+                  ทนาย
+                </Button>
+                <Button
+                  variant="ghost"
+                  className="flex-1 rounded-none text-xl p-12 w-full
+                                        text-mainColor bg-white hover:bg-gray-200 focus:underline whitespace-nowrap"
+                >
+                  ตรวจสอบลิขสิทธิ์
+                </Button>
+                <Button
+                  variant="ghost"
+                  className="flex-1 rounded-none text-xl p-12 w-full
+                                        text-mainColor bg-white hover:bg-gray-200 focus:underline whitespace-nowrap"
+                >
+                  Chat Bot
+                </Button>
+                <Button
+                  variant="ghost"
+                  className="flex-1 rounded-l-none rounded-r-md text-xl p-12 w-full
+                                        text-mainColor bg-white hover:bg-gray-200 focus:underline whitespace-nowrap"
+                >
+                  ข้อมูลเบื้องต้น
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className={`w-full fixed left-0 right-0 transition-transform duration-300 bg-white z-30 top-[64px]
+                        ${isVisible ? '-translate-y-full' : 'translate-y-0'}`}
+        >
+          <div className="mx-auto max-w-full px-4">
+            <div className="flex w-full shadow-xl">
+              <Button
+                variant="ghost"
+                className="flex-1 text-xl p-12 rounded-none 
+                                    text-mainColor hover:bg-gray-200 
+                                    focus:border-b-2 focus:border-mainColor whitespace-nowrap"
+              >
+                ทนาย
+              </Button>
+              <Button
+                variant="ghost"
+                className="flex-1 text-xl p-12 rounded-none 
+                                    text-mainColor hover:bg-gray-200 
+                                    focus:border-b-2 focus:border-mainColor whitespace-nowrap"
+              >
+                ตรวจสอบลิขสิทธิ์
+              </Button>
+              <Button
+                variant="ghost"
+                className="flex-1 text-xl p-12 rounded-none 
+                                    text-mainColor hover:bg-gray-200 
+                                    focus:border-b-2 focus:border-mainColor whitespace-nowrap"
+              >
+                Chat Bot
+              </Button>
+              <Button
+                variant="ghost"
+                className="flex-1 text-xl p-12 rounded-none 
+                                    text-mainColor hover:bg-gray-200 
+                                    focus:border-b-2 focus:border-mainColor whitespace-nowrap"
+              >
+                ข้อมูลเบื้องต้น
+              </Button>
+            </div>
           </div>
         </div>
       </div>
-      <div
-        className={` w-full transition-transform duration-300 fixed top-16 bg-white z-30
-                ${isVisible ? "translate-y-[-100%]" : "transition-y-full"}
-                `}
-      >
-        <div className="flex w-full shadow-xl text-center h-fit bg-white">
-          {MENU.map((item, index) => (
-            <MenuNavScrolling key={index} menu={item.value} title={item.name} />
-          ))}
-        </div>
-      </div>
+      <main className="relative z-0 bg-white" style={{ marginTop: 'calc(64px + 200px)' }}>
+      </main>
     </>
   );
-};
+}
 
 export default SubNav;
