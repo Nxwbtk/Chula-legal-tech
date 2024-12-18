@@ -11,7 +11,6 @@ import { HomeChatBot } from "./_components/chat-bot";
 import { HomeCheck } from "./_components/check";
 import { HomeLawyer } from "./_components/lawyer";
 import HomeMain from "./_components/home-main";
-import { set } from "date-fns";
 
 const HomePage = () => {
   const [selectedMenu] = useMenuStore(useShallow((state) => [state.menu]));
@@ -63,14 +62,14 @@ const HomePage = () => {
     []
   );
   return (
-      <div className="min-h-screen flex flex-col justify-between">
-        <MainNav />
-        <SubNav />
-        <main className="flex justify-center items-center h-full mb-12">
-          {step[stepNumber].component()}
-        </main>
-        <Footer />
-      </div>
+    <div className="min-h-screen flex flex-col justify-between">
+      <MainNav />
+      <SubNav />
+      <main className="flex justify-center items-center h-full mb-12">
+        {step[stepNumber].component()}
+      </main>
+      <Footer />
+    </div>
   );
 };
 

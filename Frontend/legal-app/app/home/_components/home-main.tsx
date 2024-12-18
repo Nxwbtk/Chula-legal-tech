@@ -6,7 +6,7 @@ const HomeMain = () => {
     return (
         <div className="flex flex-col justify-start items-start w-3/4 space-y-3 ">
             <h1 className="text-2xl font-semibold text-gray-600 text-left">
-                ทำไมต้องเลือก [ ชื่อแอพ ]?
+                ทำไมต้องเลือก LEXIA ?
             </h1>
             <h1 className="text-2xl font-semibold text-mainColor text-left">
                 เพราะเราเปลี่ยนทุกปัญหากฎหมายของคุณให้ได้รับการแก้ไข
