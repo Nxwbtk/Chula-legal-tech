@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-export type MenuType = "lawyer" | "check-copyright" | "chat-bot" | "basic-info";
+export type MenuType = "home-main" | "lawyer" | "check-copyright" | "chat-bot" | "basic-info";
 
 type GlobalState = {
   menu: MenuType;
@@ -11,6 +11,6 @@ type GlobalAction = {
 };
 
 export const useMenuStore = create<GlobalState & GlobalAction>((set) => ({
-  menu: "lawyer",
+  menu: "home-main",
   setMenu: (menu) => set({ menu }),
 }));

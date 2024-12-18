@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
     return (
-        <footer className="w-full h-full">
+        <footer className="w-full h-full bottom-0 left-0 right-0 static">
             <div className="flex items-center mx-auto bg-mainColor w-full p-5">
                 <div className="border-r-2 p-4">
                     <h2 className="font-medium text-xl text-white">ติดต่อเรา</h2>
