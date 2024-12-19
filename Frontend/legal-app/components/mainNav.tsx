@@ -17,10 +17,17 @@ import {
 import { Bell, Clock, Menu, MessageCircle } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
+import { MenuType, useMenuStore } from "@/lib/store/menu-store";
+
 
 const MainNav = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const setMenu = useMenuStore((state) => state.setMenu);
+
+  const handleSelect = (menu: MenuType) => {
+    setMenu(menu);
+  };
 
   const controlNavbar = () => {
     if (typeof window !== "undefined") {
@@ -40,7 +47,6 @@ const MainNav = () => {
         window.removeEventListener("scroll", controlNavbar);
       };
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lastScrollY]);
 
   return (
@@ -48,10 +54,9 @@ const MainNav = () => {
       <div className="mx-auto max-w-full px-4 py-2">
         <div className="flex items-center justify-between">
           <div className="hidden md:flex items-center flex-grow gap-4">
-            <Link href={"/"} className="flex items-center flex-shrink-0">
+            <Link href={"/home"} className="flex items-center flex-shrink-0" onClick={() => handleSelect("home-main")}>
               <div className="text-white px-4 py-2">
-                <b className="text-4xl text-pink-500">BLACK</b>
-                <b className="text-4xl text-black">PINK</b>
+                <b className="text-4xl text-yellow-600">LEXIA</b>
               </div>
             </Link>
             <div

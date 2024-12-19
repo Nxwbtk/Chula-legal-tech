@@ -53,8 +53,7 @@ export default function LoginPage() {
         <div className="flex flex-col justify-center items-center w-full h-full bg-white">
           <div className="mt-3">
             <h1 className="text-2xl text-black">
-              WELCOME TO <b className="text-pink-600">BLACK</b>
-              <b className="text-black">PINK</b>
+              WELCOME TO <b className="text-yellow-600">LEXIA</b>
             </h1>
           </div>
           <div className="mt-[5%] border-b-2 border-mainColor w-1/2">

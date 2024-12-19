@@ -241,7 +241,7 @@ const SignLawyer = () => {
                 <div className="w-full lg:w-full px-4 lg:px-8">
                     <div className="flex flex-col justify-center items-center max-w-2xll mx-auto">
                         <div>
-                            <p className="text-2xl sm:text-4xl">welcome to <b className="text-4xl text-pink-500">BLACK</b><b className="text-4xl text-black">PINK</b></p>
+                            <p className="text-2xl sm:text-4xl">welcome to <b className="text-4xl text-yellow-600">LEXIA</b></p>
                         </div>
                         <div className="w-full lg:w-[50%] border-b-2 border-mainColor mt-4 text-center">
                             <h1 className="text-xl sm:text-2xl font-semibold text-mainColor">Sign Up Lawyer</h1>

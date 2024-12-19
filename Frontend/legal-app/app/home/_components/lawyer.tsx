@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Menu, SortDescIcon, StarIcon, TargetIcon } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export type TLawyerInfo = {
   honorific: string;
@@ -105,7 +106,7 @@ export const HomeLawyer = () => {
     <div className="flex flex-col gap-4 w-3/4">
       <h1 className="text-2xl font-bold">ทนาย</h1>
       <div className="flex flex-row gap-2">
-        <div className=" border rounded-lg border-black hover:cursor-pointer">
+        <div className="border rounded-lg border-black hover:cursor-pointer">
           <div className="p-2 flex flex-row items-center gap-4">
             <Menu color="#143D7C" size={24} />
             <p className="text-xl">Filter</p>
@@ -127,7 +128,9 @@ export const HomeLawyer = () => {
       <p className="text-xl">Found 15,481</p>
       <div className="grid grid-cols-4 gap-2">
         {LAWYER.map((lawyer, index) => (
-          <LawyerCard key={index} {...lawyer} />
+          <Link href={`/lawyer/${index}`} key={index}>
+            <LawyerCard key={index} {...lawyer} />
+          </Link>
         ))}
       </div>
     </div>
