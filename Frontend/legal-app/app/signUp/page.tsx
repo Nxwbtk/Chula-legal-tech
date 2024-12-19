@@ -18,7 +18,7 @@ const SignUpPage = () => {
             <div className="flex flex-col justify-center items-center w-full h-screen">
                 <Card className="w-2/3 shadow-lg border-2">
                     <CardHeader className="text-center">
-                        <h1><b className="text-4xl text-pink-500">BLACK</b><b className="text-4xl text-black"> PINK</b></h1>
+                        <h1><b className="text-4xl text-yellow-500">LEXIA</b></h1>
                     </CardHeader>
                     <CardTitle className="ml-2">
                         <h1 className="text-2xl font-bold">SIGN UP AS</h1>
